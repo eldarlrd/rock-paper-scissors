@@ -8,13 +8,100 @@
   <link href="assets/fist.ico" rel="icon">
   <script src="script.js" defer></script>
   <script>
-    // setInterval(() => location.reload(), 1000); // Temporary
+    setInterval(() => location.reload(), 1000); // Temporary
   </script>
   <title>Rock Paper Scissors</title>
 </head>
 
 <body>
+  <header>
+    <h1>RPS</h1>
+    <!-- Game Rules Dropdown -->
+    <div id="drop-info">
+      <button title="Game Rules">
+        <img class="drop-img"
+             src="assets/icons/info.png"
+             alt="Info">
+      </button>
+      <span id="game-rules">
 
+      </span>
+    </div>
+    <!-- Settings Dropdown -->
+    <div id="drop-settings">
+      <button title="Settings">
+        <img class="drop-img"
+             src="assets/icons/settings.png"
+             alt="Settings">
+      </button>
+      <span id="settings">
+        
+      </span>
+    </div>
+  </header>
+  <!-- Score Screen -->
+  <main>
+    <!-- Swap audio src & update results -->
+    <div id="result">
+      <audio id="result-snd"></audio>
+      <h2>Choose wisely</h2>
+      <h3>First to score 5 shall be victorious</h3>
+    </div>
+    <!-- Swap img src & count score -->
+    <div id="score">
+      <figure>
+        <img class="score-img">
+        Player:
+      </figure>
+      <figure>
+        <img class="score-img">
+        Computer:
+      </figure>
+    </div>
+    <!-- Gesture Menu -->
+    <div id="gestures">
+      <!-- Play audio on hover -->
+      <button id="rock-btn">
+        <audio id="rock-snd"></audio>
+        <img class="gesture-img"
+             src="assets/icons/gestures/rock.png">
+        Rock
+      </button>
+      <button id="paper-btn">
+        <audio id="paper-snd"></audio>
+        <img class="gesture-img"
+             src="assets/icons/gestures/paper.png">
+        Paper
+      </button>
+      <button id="scissors-btn">
+        <audio id="scissors-snd"></audio>
+        <img class="gesture-img"
+             src="assets/icons/gestures/scissors.png">
+        Scissors
+      </button>
+    </div>
+  </main>
+  <!-- Endgame Modal -->
+  <div id="modal">
+
+  </div>
+  <!-- Footer -->
+  <footer>
+    game's origin <a target="_blank"
+    rel="noreferrer"
+    href="http://www.samkass.com/theories/RPSSL.html">
+    from this blog</a>
+    <br>
+    inspired by <a target="_blank"
+    rel="noreferrer"
+    href="https://youtu.be/pIpmITBocfM">
+    this clip</a>
+    <br>
+    site by <a target="_blank"
+    rel="noreferrer"
+    href="https://github.com/eldarlrd">
+    eldarlrd</a>
+  </footer>
 </body>
 
 </html>

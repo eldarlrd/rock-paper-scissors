@@ -1,0 +1,18 @@
+@font-face {
+  font-family: NanumPenScript;
+  src: url(assets/NanumPenScript.ttf);
+}
+
+:root {
+  scroll-behavior: smooth;
+  font-family: NanumPenScript;
+}
+
+button {
+  outline: none;
+}
+
+img {
+  width: 1em;
+  height: 1em;
+}
