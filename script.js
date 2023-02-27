@@ -14,7 +14,7 @@ const getCompChoice = () => {
     case 2:
       compChoice = "Scissors";
   } return compChoice;
-}
+};
 // Play Round
 const playRound = plrChoice => {
   const compChoice = getCompChoice();
@@ -26,28 +26,24 @@ const playRound = plrChoice => {
   };
 
   let result;
-  if (plrChoice === compChoice) {
-    result = "Draw";
-  }
-  if (plrChoice === "Rock" && compChoice === "Paper") {
-    result = "Lose";
-  }
-  if (plrChoice === "Rock" && compChoice === "Scissors") {
-    result = "Win";
-  }
-  if (plrChoice === "Paper" && compChoice === "Scissors") {
-    result = "Lose";
-  }
-  if (plrChoice === "Paper" && compChoice === "Rock") {
-    result = "Win";
-  }
-  if (plrChoice === "Scissors" && compChoice === "Rock") {
-    result = "Lose";
-  }
-  if (plrChoice === "Scissors" && compChoice === "Paper") {
-    result = "Win";
-  }
-  return `You ${result}! ${reason[result]}`;
-}
+  switch (true) {
+    case (plrChoice === "Rock" && compChoice === "Scissors"):
+    case (plrChoice === "Paper" && compChoice === "Rock"):
+    case (plrChoice === "Scissors" && compChoice === "Paper"):
+      result = "Win";
+      break;
+    case (plrChoice === "Rock" && compChoice === "Paper"):
+    case (plrChoice === "Paper" && compChoice === "Scissors"):
+    case (plrChoice === "Scissors" && compChoice === "Rock"):
+      result = "Lose";
+      break;
+    default:
+      result = "Draw";
+  } return `You ${result}! ${reason[result]}`;
+};
+// Full Game
+const game = () => {
+  return playRound("Rock"); // Temporary
+};
 // Test
-console.log(playRound("Paper"));
+console.log(game());
