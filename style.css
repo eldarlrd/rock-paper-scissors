@@ -184,10 +184,47 @@ section {
 }
 /* Score */
 h2 {
-  font-size: 28px;
+  font-size: 2em;
+  margin-top: 6px;
 }
 /* Temporary */
 img {
-  width: 0em;
-  height: 0em;
+  width: 4rem;
+  height: 4rem;
 }
+
+#gestures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.gesture {
+  font-family: NanumPenScript;
+  font-size: 24px;
+  font-weight: bold;
+  display: inherit;
+  flex-direction: column;
+  align-items: center;
+  width: 4em;
+  gap: 6px;
+  border: 0;
+  padding: 6px 1em;
+  border-radius: 1em;
+  background: none;
+  color: var(--pen-blue);
+}
+.gesture:hover {
+  filter: saturate(3);
+}
+.gesture:active {
+  filter: grayscale(.75);
+}
+
+.ls {
+  color: var(--toxic-green);
+}
+/* Footer */
