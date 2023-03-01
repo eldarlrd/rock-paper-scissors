@@ -8,36 +8,57 @@
   <link href="assets/fist.ico" rel="icon">
   <script src="script.js" defer></script>
   <script>
-    setInterval(() => location.reload(), 1000); // Temporary
+    // setInterval(() => location.reload(), 1000); // Temporary
   </script>
   <title>Rock Paper Scissors</title>
 </head>
 
 <body>
   <header>
-    <h1>RPS</h1>
-    <!-- Game Rules Dropdown -->
-    <div id="drop-info">
-      <button title="Game Rules">
-        <img class="drop-img"
-             src="assets/icons/info.png"
-             alt="Info">
-      </button>
-      <span id="game-rules">
-
-      </span>
-    </div>
-    <!-- Settings Dropdown -->
-    <div id="drop-settings">
-      <button title="Settings">
-        <img class="drop-img"
-             src="assets/icons/settings.png"
-             alt="Settings">
-      </button>
-      <span id="settings">
-        
-      </span>
-    </div>
+    <h1>RPS<span></span></h1>
+    <section>
+      <!-- Game Rules Dropdown -->
+      <div class="drop">
+        <button class="drop-btn" title="Game Rules">
+          <img src="assets/icons/info.png"
+               alt="Info">
+        </button>
+        <span id="game-rules">
+          Rock crushes Scissors
+          Paper covers Rock
+          Scissors cuts Paper
+          <span></span>
+        </span>
+      </div>
+      <!-- Settings Dropdown -->
+      <div class="drop">
+        <button class="drop-btn" title="Settings">
+          <img src="assets/icons/settings.png"
+               alt="Cogwheel">
+        </button>
+        <span id="settings">
+          <span>
+            <label for="3">
+              <input id="3" type="radio" name="max-score" value="3"> 3 to win
+            </label>
+            <br>
+            <label for="5">
+              <input id="5" type="radio" name="max-score" value="5" checked> 5 to win
+            </label>
+            <br>
+            <label for="10">
+              <input id="10" type="radio" name="max-score" value="10"> 10 to win
+            </label>
+          </span>
+          <div id="switch">
+            RPS
+            <input id="toggle" type="checkbox">
+            <label id="slider" for="toggle"></label>
+            <p>+LS</p>
+          </div>
+        </span>
+      </div>
+    </section>
   </header>
   <!-- Score Screen -->
   <main>
@@ -45,17 +66,17 @@
     <div id="result">
       <audio id="result-snd"></audio>
       <h2>Choose wisely</h2>
-      <h3>First to score 5 shall be victorious</h3>
+      <h3>Score 5 to be victorious</h3>
     </div>
     <!-- Swap img src & count score -->
     <div id="score">
       <figure>
         <img class="score-img">
-        Player:
+        Player: 0
       </figure>
       <figure>
         <img class="score-img">
-        Computer:
+        Computer: 0
       </figure>
     </div>
     <!-- Gesture Menu -->
@@ -78,6 +99,12 @@
         <img class="gesture-img"
              src="assets/icons/gestures/scissors.png">
         Scissors
+      </button>
+    </div>
+    <!-- Restart -->
+    <div id="restart">
+      <button>
+        Restart
       </button>
     </div>
   </main>

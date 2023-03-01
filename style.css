@@ -2,17 +2,192 @@
   font-family: NanumPenScript;
   src: url(assets/NanumPenScript.ttf);
 }
-
+/* Containers */
 :root {
-  scroll-behavior: smooth;
+  --pen-blue: #00366F;
+  --toxic-green: #007112;
+  --paper: #EFECEA;
+  --light-paper: #FBF8F6;
+  --dark-paper: #B7B5B3;
   font-family: NanumPenScript;
+  scroll-behavior: smooth;
+  width: 100%;
+  margin: 0;
+  color: var(--pen-blue);
+  background: var(--light-paper);
+  accent-color: var(--pen-blue);
 }
 
 button {
   outline: none;
 }
 
-img {
+body {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+header {
+  display: inherit;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  padding-top: 1rem;
+  font-size: 4em;
+  line-height: 0;
+}
+
+h1 > span {
+  color: var(--toxic-green);
+}
+
+section {
+  display: inherit;
+  flex-direction: row;
+  gap: 1em;
+}
+/* Dropdown */
+.drop {
+  display: inherit;
+  width: 2em;
+  height: 2em;
+  padding-bottom: 1em;
+  align-items: center;
+  justify-content: center;
+}
+
+.drop-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  border: 0;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background: none;
+}
+.drop-btn:hover {
+  background: var(--paper);
+}
+
+.drop-btn > img {
   width: 1em;
   height: 1em;
+}
+
+.drop > span {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+/* Game Rules */
+.drop:hover #game-rules {
+  visibility: visible;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top: 9em;
+  width: 9em;
+  height: min-content;
+  padding: 1rem 12px;
+  border-radius: 1em;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 22px;
+  box-shadow: 0 0 1px black;
+  background: var(--paper);
+  opacity: 98%;
+  z-index: 1;
+}
+
+#game-rules > span {
+  color: var(--toxic-green);
+}
+/* Settings */
+.drop:hover #settings {
+  visibility: visible;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top: 9em;
+  width: min-content;
+  height: min-content;
+  padding: 1rem 12px;
+  border-radius: 1em;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 22px;
+  box-shadow: 0 0 1px black;
+  background: var(--paper);
+  opacity: 98%;
+  z-index: 1;
+}
+
+#settings > span {
+  text-align: left;
+  font-size: 20px;
+  line-height: 28px;
+  margin-right: 1em;
+  margin-bottom: 1rem;
+}
+/* Switch */
+#switch {
+  font-size: 24px;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 1em;
+  gap: 6px;
+}
+
+#toggle {
+  position: absolute;
+  visibility: hidden;
+}
+
+#slider {
+  width: 2em;
+  height: 24px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 12px;
+  background: var(--dark-paper);
+}
+#slider::after {
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  border-radius: 1rem;
+  background: var(--light-paper);
+  transition: left .2s, transform .2s;
+}
+#slider:hover::after {
+  background: var(--pen-blue);
+}
+#toggle:checked + #slider::after {
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
+}
+
+#switch > p {
+  color: var(--toxic-green);
+}
+/* Score */
+h2 {
+  font-size: 28px;
+}
+/* Temporary */
+img {
+  width: 0em;
+  height: 0em;
 }
