@@ -8,14 +8,14 @@
   <link href="assets/fist.ico" rel="icon">
   <script src="script.js" defer></script>
   <script>
-    setInterval(() => location.reload(), 1000); // Temporary
+    // setInterval(() => location.reload(), 1000); // Temporary
   </script>
   <title>Rock Paper Scissors</title>
 </head>
 
 <body>
   <header>
-    <h1>RPS<span></span></h1>
+    <h1>RPS<span>LS</span></h1>
     <section>
       <!-- Game Rules Dropdown -->
       <div class="drop">
@@ -27,7 +27,15 @@
           Rock crushes Scissors
           Paper covers Rock
           Scissors cuts Paper
-          <span></span>
+          <span>
+            Rock crushes Lizard
+            Paper disproves Spock
+            Scissors beheads Lizard
+            Lizard eats Paper
+            Lizard poisons Spock
+            Spock vaporizes Rock
+            Spock breaks Scissors
+          </span>
         </span>
       </div>
       <!-- Settings Dropdown -->
@@ -39,15 +47,25 @@
         <span id="settings">
           <span>
             <label for="3">
-              <input id="3" type="radio" name="max-score" value="3"> 3 to win
+              <input id="3"
+                type="radio"
+                name="max-score"
+                value="3"> 3 to win
             </label>
             <br>
             <label for="5">
-              <input id="5" type="radio" name="max-score" value="5" checked> 5 to win
+              <input id="5"
+                type="radio"
+                name="max-score"
+                value="5"
+                checked> 5 to win
             </label>
             <br>
             <label for="10">
-              <input id="10" type="radio" name="max-score" value="10"> 10 to win
+              <input id="10"
+                type="radio"
+                name="max-score"
+                value="10"> 10 to win
             </label>
           </span>
           <div id="switch">
@@ -117,7 +135,10 @@
     </div>
     <!-- Restart -->
     <div id="restart">
+      <audio></audio>
       <button>
+        <img id="restart-img"
+             src="assets/icons/fist.png">
         Restart
       </button>
     </div>

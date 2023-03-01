@@ -26,6 +26,8 @@ body {
   display: flex;
   text-align: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 header {
@@ -185,19 +187,47 @@ section {
 /* Score */
 h2 {
   font-size: 2em;
-  margin-top: 6px;
-}
-/* Temporary */
-img {
-  width: 4rem;
-  height: 4rem;
+  margin-top: 1rem;
+  line-height: 0;
 }
 
-#gestures {
+h3 {
+  font-size: 26px;
+}
+
+#score {
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
+  margin-top: -1em;
+  width: 100%;
+}
+
+figure {
+  font-size: 21px;
+  font-weight: bold;
+  display: inherit;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: fit-content;
+  padding: 6px;
+  border-radius: 1em;
+  gap: 12px;
+}
+
+.score-img {
+  width: 5rem;
+  height: 5rem;
+}
+/* Gesture Menu */
+#gestures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22.5em;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -227,4 +257,17 @@ img {
 .ls {
   color: var(--toxic-green);
 }
+
+.gesture-img {
+  width: 4rem;
+  height: 4rem;
+}
+/* Restart */
+#restart-img {
+  width: 1em;
+  height: 1em;
+}
 /* Footer */
+footer {
+  font-size: 18px;
+}
