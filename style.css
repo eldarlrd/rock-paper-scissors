@@ -19,6 +19,7 @@
 }
 
 button {
+  font-family: NanumPenScript;
   outline: none;
 }
 
@@ -233,7 +234,6 @@ figure {
 }
 
 .gesture {
-  font-family: NanumPenScript;
   font-size: 24px;
   font-weight: bold;
   display: inherit;
@@ -247,10 +247,10 @@ figure {
   background: none;
   color: var(--pen-blue);
 }
-.gesture:hover {
+.gesture:hover, #restart:hover, label:not(#slider):hover, footer > a:hover {
   filter: saturate(3);
 }
-.gesture:active {
+.gesture:active, #restart:active, footer > a:active {
   filter: grayscale(.75);
 }
 
@@ -263,11 +263,29 @@ figure {
   height: 4rem;
 }
 /* Restart */
-#restart-img {
-  width: 1em;
-  height: 1em;
+#restart {
+  margin-top: 1rem;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--pen-blue);
+  border: 0;
+  border-radius: 6px;
+  width: 5em;
+  height: 2em;
+  background: none;
+}
+
+#restart > img {
+  vertical-align: top;
+  width: 20px;
+  height: 20px;
 }
 /* Footer */
 footer {
+  margin-top: 1em;
   font-size: 18px;
+}
+
+footer > a {
+  color: inherit;
 }
