@@ -3,13 +3,13 @@
 <!-- Boilerplate -->
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Rock Paper Scissors & Lizard Spock">
+  <meta name="keywords" content="RPS, Rock Paper Scissors, Lizard Spock">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="eldarlrd">
   <link href="style.css" rel="stylesheet">
   <link href="assets/fist.ico" rel="icon">
   <script src="script.js" defer></script>
-  <script>
-    // setInterval(() => location.reload(), 1000); // Temporary
-  </script>
   <title>Rock Paper Scissors</title>
 </head>
 
@@ -89,14 +89,16 @@
     <!-- Swap img src & count score -->
     <div id="score">
       <figure>
-        <img class="score-img"
-        src="assets/icons/unknown.png">
-        Player: 0
+        <img id="player-choice"
+             class="score-img"
+             src="assets/icons/unknown.png"
+             alt="Player's Choice"> Player: 0
       </figure>
       <figure>
-        <img class="score-img"
-        src="assets/icons/unknown.png">
-        Computer: 0
+        <img id="comp-choice"
+             class="score-img"
+             src="assets/icons/unknown.png"
+             alt="Computer's Choice"> Computer: 0
       </figure>
     </div>
     <!-- Gesture Menu -->
@@ -105,39 +107,39 @@
       <button class="rps gesture" id="rock-btn">
         <audio id="rock-snd"></audio>
         <img class="gesture-img"
-        src="assets/icons/gestures/rock.png">
-        Rock
+             src="assets/icons/gestures/rock.png"
+             alt="Rock Icon"> Rock
       </button>
       <button class="rps gesture" id="paper-btn">
         <audio id="paper-snd"></audio>
         <img class="gesture-img"
-        src="assets/icons/gestures/paper.png">
-        Paper
+             src="assets/icons/gestures/paper.png"
+             alt="Paper Icon"> Paper
       </button>
       <button class="rps gesture" id="scissors-btn">
         <audio id="scissors-snd"></audio>
         <img class="gesture-img"
-        src="assets/icons/gestures/scissors.png">
-        Scissors
+             src="assets/icons/gestures/scissors.png"
+             alt="Scissors Icon"> Scissors
       </button>
       <button class="ls gesture" id="scissors-btn">
         <audio id="scissors-snd"></audio>
         <img class="gesture-img"
-        src="assets/icons/gestures/lizard.png">
-        Lizard
+             src="assets/icons/gestures/lizard.png"
+             alt="Lizard Icon"> Lizard
       </button>
       <button class="ls gesture" id="scissors-btn">
         <audio id="scissors-snd"></audio>
         <img class="gesture-img"
-        src="assets/icons/gestures/spock.png">
-        Spock
+             src="assets/icons/gestures/spock.png"
+             alt="Spock Icon"> Spock
       </button>
     </div>
     <!-- Restart -->
     <button id="restart">
       <audio id="restart-snd"></audio>
-      <img src="assets/icons/fist.png">
-      Restart
+      <img src="assets/icons/fist.png"
+           alt="Fist Icon"> Restart
     </button>
   </main>
   <!-- Endgame Modal -->
@@ -147,19 +149,19 @@
   <!-- Footer -->
   <footer>
     game's origin <a target="_blank"
-    rel="noreferrer"
-    href="http://www.samkass.com/theories/RPSSL.html">
-    from this blog</a>
+      rel="noreferrer"
+      href="http://www.samkass.com/theories/RPSSL.html">
+      from this blog</a>
     <br>
     inspired by <a target="_blank"
-    rel="noreferrer"
-    href="https://youtu.be/pIpmITBocfM">
-    this clip</a>
+      rel="noreferrer"
+      href="https://youtu.be/pIpmITBocfM">
+      this clip</a>
     <br>
     site by <a target="_blank"
-    rel="noreferrer"
-    href="https://github.com/eldarlrd">
-    eldarlrd</a>
+      rel="noreferrer"
+      href="https://github.com/eldarlrd">
+      eldarlrd</a>
   </footer>
 </body>
 

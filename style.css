@@ -2,14 +2,14 @@
   font-family: NanumPenScript;
   src: url(assets/NanumPenScript.ttf);
 }
-/* Containers */
+/* General */
 :root {
   --pen-blue: #00366F;
   --toxic-green: #007112;
   --paper: #EFECEA;
   --light-paper: #FBF8F6;
   --dark-paper: #B7B5B3;
-  font-family: NanumPenScript;
+  font-family: NanumPenScript, cursive;
   scroll-behavior: smooth;
   width: 100%;
   margin: 0;
@@ -19,8 +19,10 @@
 }
 
 button {
-  font-family: NanumPenScript;
+  font-family: NanumPenScript, cursive;
+  font-weight: bold;
   outline: none;
+  border: 0;
 }
 
 body {
@@ -35,16 +37,12 @@ header {
   display: inherit;
   flex-direction: column;
   align-items: center;
+  margin-top: 1em;
 }
 
 h1 {
-  padding-top: 1rem;
   font-size: 4em;
   line-height: 0;
-}
-
-h1 > span {
-  color: var(--toxic-green);
 }
 
 section {
@@ -52,26 +50,39 @@ section {
   flex-direction: row;
   gap: 1em;
 }
+
+h1 > span, #switch > p,
+#game-rules > span, .ls {
+  color: var(--toxic-green) !important;
+}
+
+.gesture:hover, #restart:hover,
+footer > a:hover, label:not(#slider):hover {
+  filter: saturate(3);
+}
+.gesture:active, #restart:active,
+footer > a:active {
+  filter: grayscale(.75);
+}
 /* Dropdown */
 .drop {
-  display: inherit;
   width: 2em;
   height: 2em;
   padding-bottom: 1em;
+  display: inherit;
   align-items: center;
   justify-content: center;
 }
 
 .drop-btn {
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  border: 0;
   border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
   background: none;
+  font-size: 22px;
 }
 .drop-btn:hover {
   background: var(--paper);
@@ -87,8 +98,9 @@ section {
   height: 0;
   visibility: hidden;
 }
-/* Game Rules */
-.drop:hover #game-rules {
+
+.drop:hover #game-rules,
+.drop:hover #settings {
   visibility: visible;
   position: absolute;
   display: flex;
@@ -107,29 +119,9 @@ section {
   opacity: 98%;
   z-index: 1;
 }
-
-#game-rules > span {
-  color: var(--toxic-green);
-}
 /* Settings */
 .drop:hover #settings {
-  visibility: visible;
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  top: 9em;
   width: min-content;
-  height: min-content;
-  padding: 1rem 12px;
-  border-radius: 1em;
-  font-size: 17px;
-  font-weight: bold;
-  line-height: 22px;
-  box-shadow: 0 0 1px black;
-  background: var(--paper);
-  opacity: 98%;
-  z-index: 1;
 }
 
 #settings > span {
@@ -181,10 +173,6 @@ section {
   left: calc(100% - 4px);
   transform: translateX(-100%);
 }
-
-#switch > p {
-  color: var(--toxic-green);
-}
 /* Score */
 h2 {
   font-size: 2em;
@@ -228,34 +216,22 @@ figure {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22.5em;
   flex-wrap: wrap;
+  width: 22.5em;
   gap: 12px;
 }
 
 .gesture {
   font-size: 24px;
-  font-weight: bold;
   display: inherit;
   flex-direction: column;
   align-items: center;
-  width: 4em;
   gap: 6px;
-  border: 0;
+  width: 4em;
   padding: 6px 1em;
   border-radius: 1em;
   background: none;
-  color: var(--pen-blue);
-}
-.gesture:hover, #restart:hover, label:not(#slider):hover, footer > a:hover {
-  filter: saturate(3);
-}
-.gesture:active, #restart:active, footer > a:active {
-  filter: grayscale(.75);
-}
-
-.ls {
-  color: var(--toxic-green);
+  color: inherit;
 }
 
 .gesture-img {
@@ -264,26 +240,25 @@ figure {
 }
 /* Restart */
 #restart {
-  margin-top: 1rem;
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--pen-blue);
-  border: 0;
-  border-radius: 6px;
   width: 5em;
   height: 2em;
+  margin-top: 1rem;
+  font-size: 20px;
+  border-radius: 6px;
+  color: inherit;
   background: none;
 }
 
 #restart > img {
-  vertical-align: top;
   width: 20px;
   height: 20px;
+  vertical-align: top;
 }
 /* Footer */
 footer {
-  margin-top: 1em;
   font-size: 18px;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 footer > a {
