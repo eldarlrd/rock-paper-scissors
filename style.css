@@ -74,6 +74,14 @@ footer > a:active {
   filter: grayscale(.75);
 }
 /* Color Theme */
+.dark {
+  --primary: var(--dk-primary);
+  --secondary: var(--dk-secondary);
+  --tertiary: var(--dk-tertiary);
+  --toggle: var(--dk-toggle);
+  --secret: var(--dk-secret);
+}
+
 .white {
   filter: contrast(0) brightness(1.6);
 }

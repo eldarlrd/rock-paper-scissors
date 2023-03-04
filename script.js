@@ -1,4 +1,63 @@
 "use strict";
+// Theme Relevant
+const root = document.getElementsByTagName("html")[0];
+const themeBtn = document.getElementById("theme-btn");
+const themeImg = document.getElementById("theme-img");
+const toWhite = document.getElementsByClassName("change");
+const toPink = document.getElementsByClassName("gesture-img");
+// Audio Relevant
+const volBtn = document.getElementById("volume-btn");
+const volImg = document.getElementById("volume-img");
+const audio = document.getElementsByTagName("audio");
+// Settings Variables
+let darkMode;
+let volMute;
+// Check Theme Preference
+const themeCheck = () => {
+  window.matchMedia?.("(prefers-color-scheme: dark)")
+        .matches
+          ? colorTheme()
+          : null;
+};
+// Change Color Theme
+const colorTheme = () => {
+  darkMode
+    ? themeImg.src = "assets/icons/moon.png"
+    : themeImg.src = "assets/icons/sun.png";
+  root.classList.toggle("dark");
+  Object.values(toWhite).forEach(e => {
+    e.classList.toggle("white");
+  });
+  Object.values(toPink).forEach(e => {
+    e.classList.toggle("pink");
+  });
+  darkMode = !darkMode;
+};
+// Change Volume
+const volumeState = () => {
+  if (volMute) {
+    volImg.src = "assets/icons/speaker.png"
+    Object.values(audio).forEach(e => {
+      e.volume = 1;
+    });
+  } else {
+      volImg.src = "assets/icons/mute.png";
+      Object.values(audio).forEach(e => {
+        e.volume = 0;
+      });
+    }
+  volMute = !volMute;
+};
+// Calls
+themeCheck();
+
+themeBtn.addEventListener("click", () => {
+  colorTheme();
+});
+
+volBtn.addEventListener("click", () => {
+  volumeState();
+});
 // Computer's Choice
 const getCompChoice = () => {
   const compRoll = Math.floor(Math.random() * 3);
@@ -47,3 +106,5 @@ const game = () => {
 };
 // Test
 console.log(game());
+// Easter Egg
+console.log("Bazinga!");

@@ -21,7 +21,8 @@
       <div class="drop">
         <button class="drop-btn" title="Game Rules">
           <!-- Add className "white" -->
-          <img src="assets/icons/info.png"
+          <img class="change"
+               src="assets/icons/info.png"
                alt="Info">
         </button>
         <span id="game-rules">
@@ -43,20 +44,21 @@
       <div class="drop">
         <button class="drop-btn" title="Settings">
           <!-- Add className "white" -->
-          <img src="assets/icons/settings.png"
+          <img class="change"
+               src="assets/icons/settings.png"
                alt="Cogwheel">
         </button>
         <span id="settings">
-          <!-- Switch img src -->
+          <!-- Switch img src & Add className "white" -->
           <span>
-            <!-- Add className "white" -->
-            <button class="settings-btn" title="Color Theme">
+            <button id="theme-btn" class="settings-btn change"
+                    title="Color Theme">
               <img id="theme-img"
                    src="assets/icons/moon.png"
                    alt="Moon or Sun">
             </button>
-            <!-- Add className "white" -->
-            <button class="settings-btn" title="Volume Toggle">
+            <button id="volume-btn" class="settings-btn change"
+                    title="Volume Toggle">
               <img id="volume-img"
                    src="assets/icons/speaker.png"
                    alt="Speaker">
@@ -110,14 +112,14 @@
       <figure>
         <!-- Add className "white" -->
         <img id="player-choice"
-             class="score-img"
+             class="score-img change"
              src="assets/icons/gestures/unknown.png"
              alt="Player's Choice"> Player: 0
       </figure>
       <figure>
         <!-- Add className "white" -->
         <img id="comp-choice"
-             class="score-img"
+             class="score-img change"
              src="assets/icons/gestures/unknown.png"
              alt="Computer's Choice"> Computer: 0
       </figure>
@@ -125,33 +127,33 @@
     <!-- Gesture Menu -->
     <div id="gestures">
       <!-- Play audio on active & Add className "white" -->
-      <button class="rps gesture" id="rock-btn">
+      <button class="rps gesture change">
         <audio id="rock-snd"></audio>
         <img class="gesture-img"
              src="assets/icons/gestures/rock.png"
              alt="Rock Icon"> Rock
       </button>
-      <button class="rps gesture" id="paper-btn">
+      <button class="rps gesture change">
         <audio id="paper-snd"></audio>
         <img class="gesture-img"
              src="assets/icons/gestures/paper.png"
              alt="Paper Icon"> Paper
       </button>
-      <button class="rps gesture" id="scissors-btn">
+      <button class="rps gesture change">
         <audio id="scissors-snd"></audio>
         <img class="gesture-img"
              src="assets/icons/gestures/scissors.png"
              alt="Scissors Icon"> Scissors
       </button>
-      <button class="ls gesture" id="scissors-btn">
-        <audio id="scissors-snd"></audio>
+      <button class="ls gesture">
+        <audio id="lizard-snd"></audio>
         <!-- Add className "pink" -->
         <img class="gesture-img"
              src="assets/icons/gestures/lizard.png"
              alt="Lizard Icon"> Lizard
       </button>
-      <button class="ls gesture" id="scissors-btn">
-        <audio id="scissors-snd"></audio>
+      <button class="ls gesture">
+        <audio id="spock-snd"></audio>
         <!-- Add className "pink" -->
         <img class="gesture-img"
              src="assets/icons/gestures/spock.png"
@@ -159,7 +161,7 @@
       </button>
     </div>
     <!-- Add className "white" -->
-    <button class="restart">
+    <button class="restart change">
       <audio class="restart-snd"></audio>
       <img src="assets/icons/fist.png"
            alt="Fist Icon"> Restart
@@ -170,7 +172,7 @@
     <span>
       Victory!
       <!-- Add className "white" -->
-      <button class="restart">
+      <button class="restart change">
         <audio class="restart-snd"></audio>
         <img src="assets/icons/fist.png"
              alt="Fist Icon"> Restart
@@ -181,17 +183,17 @@
   <footer>
     <!-- Add className "white" -->
     game's origin <a target="_blank"
-      rel="noreferrer"
+      rel="noreferrer" class="change"
       href="http://www.samkass.com/theories/RPSSL.html">
       from this blog</a>
     <br>
     inspired by <a target="_blank"
-      rel="noreferrer"
+      rel="noreferrer" class="change"
       href="https://youtu.be/pIpmITBocfM">
       this clip</a>
     <br>
     site by <a target="_blank"
-      rel="noreferrer"
+      rel="noreferrer" class="change"
       href="https://github.com/eldarlrd">
       eldarlrd</a>
   </footer>
