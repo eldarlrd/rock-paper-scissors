@@ -18,7 +18,7 @@ let volMute;
 
 // Check Theme Preference
 const themeCheck = () => {
-  window.matchMedia?.("(prefers-color-scheme: dark)")
+  window.matchMedia("(prefers-color-scheme: dark)")
         .matches
           ? themeSwitch()
           : null;

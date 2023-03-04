@@ -83,13 +83,13 @@ footer > a:active {
 }
 
 .white {
-  filter: contrast(0) brightness(1.6);
+  filter: contrast(0) brightness(1.6) !important;
 }
-.white:not(.drop-btn > img, .score-img):hover {
+.white:not(img):hover {
   filter: contrast(0) brightness(2) !important;
 }
-.white:not(.drop-btn > img, .score-img, .settings-btn):active {
- filter: contrast(0) brightness(.8) !important;
+.white:not(img):not(.settings-btn):active {
+  filter: contrast(0) brightness(.8) !important;
 }
 
 .pink {
@@ -146,7 +146,7 @@ footer > a:active {
   flex-direction: column;
   align-items: flex-end;
   top: 9em;
-  width: 9em;
+  width: 146px;
   height: min-content;
   padding: 1rem 12px;
   border-radius: 1em;
@@ -154,6 +154,7 @@ footer > a:active {
   font-weight: bold;
   line-height: 22px;
   box-shadow: 0 0 1px var(--primary);
+  -webkit-box-shadow: 0 0 2px var(--primary);
   background: var(--tertiary);
   opacity: 98%;
   z-index: 1;
