@@ -16,8 +16,8 @@
   --dk-toggle: #626261;
   --dk-secret: #D642BD;
 
-  --defeat: #990002;
   --victory: #059900;
+  --defeat: #990002;
   font-family: NanumPenScript, cursive;
   scroll-behavior: smooth;
   width: 100%;
@@ -96,7 +96,7 @@ footer > a:active {
   filter: hue-rotate(180deg);
 }
 
-.remove {
+.hide {
   position: absolute;
   visibility: hidden;
   width: 0;

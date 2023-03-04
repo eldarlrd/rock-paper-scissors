@@ -101,9 +101,8 @@
   </header>
   <!-- Score Screen -->
   <main>
-    <!-- Swap audio src & update results -->
+    <!-- Update results -->
     <div id="result">
-      <audio id="result-snd"></audio>
       <h2>Choose wisely</h2>
       <h3>Score 5 to be victorious</h3>
     </div>
@@ -128,32 +127,37 @@
     <div id="gestures">
       <!-- Play audio on active & Add className "white" -->
       <button class="rps gesture change">
-        <audio id="rock-snd"></audio>
+        <audio id="rock-snd"
+               src="assets/sounds/effects/rock-smash.mp3"></audio>
         <img class="gesture-img"
              src="assets/icons/gestures/rock.png"
              alt="Rock Icon"> Rock
       </button>
       <button class="rps gesture change">
-        <audio id="paper-snd"></audio>
+        <audio id="paper-snd"
+               src="assets/sounds/effects/paper-flip.mp3"></audio>
         <img class="gesture-img"
              src="assets/icons/gestures/paper.png"
              alt="Paper Icon"> Paper
       </button>
       <button class="rps gesture change">
-        <audio id="scissors-snd"></audio>
+        <audio id="scissors-snd"
+               src="assets/sounds/effects/scissors-snip.mp3"></audio>
         <img class="gesture-img"
              src="assets/icons/gestures/scissors.png"
              alt="Scissors Icon"> Scissors
       </button>
       <button class="ls gesture extra">
-        <audio id="lizard-snd"></audio>
+        <audio id="lizard-snd"
+               src="assets/sounds/effects/lizard-hiss.mp3"></audio>
         <!-- Add className "pink" -->
         <img class="gesture-img"
              src="assets/icons/gestures/lizard.png"
              alt="Lizard Icon"> Lizard
       </button>
       <button class="ls gesture extra">
-        <audio id="spock-snd"></audio>
+        <audio id="spock-snd"
+               src="assets/sounds/effects/spock-laser.mp3"></audio>
         <!-- Add className "pink" -->
         <img class="gesture-img"
              src="assets/icons/gestures/spock.png"
@@ -173,7 +177,7 @@
       Victory!
       <!-- Add className "white" -->
       <button class="restart change">
-        <audio class="restart-snd"></audio>
+        <audio id="result-snd"></audio>
         <img src="assets/icons/fist.png"
              alt="Fist Icon"> Restart
       </button>
