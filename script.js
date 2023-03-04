@@ -9,18 +9,22 @@ const toPink = document.getElementsByClassName("gesture-img");
 const volBtn = document.getElementById("volume-btn");
 const volImg = document.getElementById("volume-img");
 const audio = document.getElementsByTagName("audio");
+// Game Mode Relevant
+const toggle = document.getElementById("toggle");
+const extra = document.getElementsByClassName("extra");
 // Settings Variables
 let darkMode;
 let volMute;
+
 // Check Theme Preference
 const themeCheck = () => {
   window.matchMedia?.("(prefers-color-scheme: dark)")
         .matches
-          ? colorTheme()
+          ? themeSwitch()
           : null;
 };
 // Change Color Theme
-const colorTheme = () => {
+const themeSwitch = () => {
   darkMode
     ? themeImg.src = "assets/icons/moon.png"
     : themeImg.src = "assets/icons/sun.png";
@@ -34,7 +38,7 @@ const colorTheme = () => {
   darkMode = !darkMode;
 };
 // Change Volume
-const volumeState = () => {
+const volumeSwitch = () => {
   if (volMute) {
     volImg.src = "assets/icons/speaker.png"
     Object.values(audio).forEach(e => {
@@ -48,16 +52,33 @@ const volumeState = () => {
     }
   volMute = !volMute;
 };
+// Change Game Mode
+const modeSwitch = () => {
+  toggle.checked
+    ? Object.values(extra).forEach(e => {
+        e.classList.remove("remove");
+      })
+    : Object.values(extra).forEach(e => {
+        e.classList.add("remove");
+      });
+};
+
 // Calls
 themeCheck();
+modeSwitch();
 
 themeBtn.addEventListener("click", () => {
-  colorTheme();
+  themeSwitch();
 });
 
 volBtn.addEventListener("click", () => {
-  volumeState();
+  volumeSwitch();
 });
+
+toggle.addEventListener("change", () => {
+  modeSwitch();
+});
+
 // Computer's Choice
 const getCompChoice = () => {
   const compRoll = Math.floor(Math.random() * 3);

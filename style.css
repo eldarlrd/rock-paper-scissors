@@ -95,6 +95,13 @@ footer > a:active {
 .pink {
   filter: hue-rotate(180deg);
 }
+
+.remove {
+  position: absolute;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
 /* Dropdown */
 .drop {
   width: 2em;
