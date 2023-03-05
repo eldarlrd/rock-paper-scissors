@@ -332,6 +332,7 @@ footer > a {
 }
 
 #modal > span {
+  user-select: none;
   position: inherit;
   top: calc(50% - 6rem);
   left: calc(50% - 7.5rem);

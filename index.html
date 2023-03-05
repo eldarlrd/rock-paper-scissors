@@ -103,8 +103,8 @@
   <main>
     <!-- Update results -->
     <div id="result">
-      <h2>Choose wisely</h2>
-      <h3>Score 5 to be victorious</h3>
+      <h2></h2>
+      <h3></h3>
     </div>
     <!-- Swap img src & count score -->
     <div id="score">
@@ -113,14 +113,16 @@
         <img id="player-choice"
              class="score-img change"
              src="assets/icons/gestures/unknown.png"
-             alt="Player's Choice"> Player: 0
+             alt="Player's Choice">
+        <span id="player-score"></span>
       </figure>
       <figure>
         <!-- Add className "white" -->
         <img id="comp-choice"
              class="score-img change"
              src="assets/icons/gestures/unknown.png"
-             alt="Computer's Choice"> Computer: 0
+             alt="Computer's Choice">
+        <span id="comp-score"></span>
       </figure>
     </div>
     <!-- Gesture Menu -->
@@ -171,7 +173,7 @@
     </div>
     <!-- Add className "white" -->
     <button class="restart change">
-      <audio class="restart-snd"></audio>
+      <audio id="restart-snd" src="assets/sounds/restart.mp3"></audio>
       <img src="assets/icons/fist.png"
            alt="Fist Icon"> Restart
     </button>
@@ -179,7 +181,7 @@
   <!-- Endgame Modal -->
   <div id="modal">
     <span>
-      Victory!
+      <span id="final-text"></span>
       <!-- Add className "white" -->
       <button class="restart change">
         <audio id="result-snd"></audio>

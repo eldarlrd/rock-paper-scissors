@@ -19,9 +19,23 @@ const plrChoiceImg = document.getElementById("player-choice");
 const compChoiceImg = document.getElementById("comp-choice");
 const firstHeader = document.getElementsByTagName("h2")[0];
 const secondHeader = document.getElementsByTagName("h3")[0];
+// Max Score
+const radio = document.getElementsByName("max-score");
+const plrScoreText = document.getElementById("player-score");
+const compScoreText = document.getElementById("comp-score");
+// Restart
+const restartBtn = Array.from(document.getElementsByClassName("restart"));
+const restartSnd = document.getElementById("restart-snd");
+// Modal
+const modal = document.getElementById("modal");
+const finalText = document.getElementById("final-text");
+const resultSnd = document.getElementById("result-snd");
 // Settings Variables
 let darkMode;
 let volMute;
+let maxScore;
+let plrScore = 0;
+let compScore = 0;
 
 // Check Theme Preference
 const themeCheck = () => {
@@ -47,10 +61,17 @@ const themeSwitch = () => {
 };
 // Change Volume
 const volumeSwitch = () => {
-  volMute
-    ? volImg.src = "assets/icons/speaker.png"
-    : volImg.src = "assets/icons/mute.png";
-  volMute = !volMute;
+  if (volMute) {
+    volImg.src = "assets/icons/speaker.png"
+    Object.values(audio).forEach(e => {
+      e.volume = 1;
+    });
+  } else {
+      volImg.src = "assets/icons/mute.png";
+      Object.values(audio).forEach(e => {
+        e.volume = 0;
+      });
+    } volMute = !volMute;
 };
 // Change Game Mode
 const modeSwitch = () => {
@@ -118,6 +139,7 @@ const playRound = plrChoice => {
     case (plrChoice === "Scissors" && (compChoice === "Paper" || compChoice === "Lizard")):
     case (plrChoice === "Lizard" && (compChoice === "Paper" || compChoice === "Spock")):
     case (plrChoice === "Spock" && (compChoice === "Rock" || compChoice === "Scissors")):
+      plrScore++;
       result = "Win!";
       break;
     case (plrChoice === "Rock" && (compChoice === "Paper" || compChoice === "Spock")):
@@ -125,31 +147,70 @@ const playRound = plrChoice => {
     case (plrChoice === "Scissors" && (compChoice === "Rock" || compChoice === "Spock")):
     case (plrChoice === "Lizard" && (compChoice === "Rock" || compChoice === "Scissors")):
     case (plrChoice === "Spock" && (compChoice === "Paper" || compChoice === "Lizard")):
+      compScore++;
       result = "Lose...";
       break;
     default:
       result = "Draw";
-  } firstHeader.innerText = `You ${result}`;
+  } fullGame();
+  firstHeader.innerText = `You ${result}`;
   secondHeader.innerText = `${reason[result]}`;
 };
-// Full Game
-const game = () => {
-  return;
+// Max Score Setter
+const setMaxScore = () => {
+  maxScore = document.querySelector("input[name='max-score']:checked").value;
+  gameRestart();
 };
-// Calls
+// Full Game
+const fullGame = () => {
+  if (plrScore == maxScore) {
+    resultSnd.src = "assets/sounds/victory.mp3";
+    resultSnd.play();
+    plrScoreText.innerText = `Player: ${plrScore}`;
+    finalText.innerText = "Victory!";
+    finalText.style.color = "var(--victory)";
+    modal.style.visibility = "visible";
+  } if (compScore == maxScore) {
+    resultSnd.src = "assets/sounds/defeat.mp3";
+    resultSnd.play();
+    compScoreText.innerText = `Computer: ${compScore}`;
+    finalText.innerText = "Defeat...";
+    finalText.style.color = "var(--defeat)";
+    modal.style.visibility = "visible";
+  } else if (plrScore <= maxScore && compScore <= maxScore) {
+      plrScoreText.innerText = `Player: ${plrScore}`;
+      compScoreText.innerText = `Computer: ${compScore}`;
+    }
+};
+// Restart Game
+const gameRestart = () => {
+  plrScore = 0;
+  compScore = 0;
+  modal.style.visibility = "hidden";
+  firstHeader.innerText = "Choose wisely";
+  secondHeader.innerText = `Score ${maxScore} to be victorious`;
+  plrScoreText.innerText = `Player: ${plrScore}`;
+  compScoreText.innerText = `Computer: ${compScore}`;
+  plrChoiceImg.src = compChoiceImg.src = "assets/icons/gestures/unknown.png";
+};
+// Play Restart Sound
+const playRestart = () => {
+  const effect = new Audio(restartSnd.src);
+  effect.play();
+  if (volMute) effect.muted = true;
+  else effect.muted = false;
+};
+// Calls on Load
 themeCheck();
 modeSwitch();
+setMaxScore();
+// Calls on Interaction
+themeBtn.addEventListener("click", themeSwitch);
+volBtn.addEventListener("click", volumeSwitch);
+toggle.addEventListener("change", modeSwitch);
 
-themeBtn.addEventListener("click", () => {
-  themeSwitch();
-});
-
-volBtn.addEventListener("click", () => {
-  volumeSwitch();
-});
-
-toggle.addEventListener("change", () => {
-  modeSwitch();
+radio.forEach(e => {
+  e.addEventListener("change", setMaxScore);
 });
 
 gestures.forEach(e => {
@@ -158,5 +219,12 @@ gestures.forEach(e => {
     playRound(e.innerText);
   });
 });
+
+restartBtn.forEach(e => {
+  e.addEventListener("click", () => {
+    gameRestart();
+    playRestart();
+  });
+});
 // Easter Egg
-console.log("Bazinga!");
+console.log("You can try, but you'll never catch me. Bazinga!");
