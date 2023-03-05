@@ -1,6 +1,7 @@
 @font-face {
   font-family: NanumPenScript;
   src: url(assets/NanumPenScript.ttf);
+  font-display: swap;
 }
 /* General */
 :root {
