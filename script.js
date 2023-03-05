@@ -1,19 +1,24 @@
 "use strict";
-// Theme Relevant
+// Theme
 const root = document.getElementsByTagName("html")[0];
 const themeBtn = document.getElementById("theme-btn");
 const themeImg = document.getElementById("theme-img");
 const toWhite = Array.from(document.getElementsByClassName("change"));
 const toPink = Array.from(document.getElementsByClassName("gesture-img"));
-// Audio Relevant
+// Audio
 const volBtn = document.getElementById("volume-btn");
 const volImg = document.getElementById("volume-img");
 const audio = document.getElementsByTagName("audio");
-// Game Mode Relevant
+// Game Mode
 const toggle = document.getElementById("toggle");
 const extra = Array.from(document.getElementsByClassName("extra"));
-// Gesture Menu Relevant
+// Gesture Menu
 const gestures = Array.from(document.getElementsByClassName("gesture"));
+// Result
+const plrChoiceImg = document.getElementById("player-choice");
+const compChoiceImg = document.getElementById("comp-choice");
+const firstHeader = document.getElementsByTagName("h2")[0];
+const secondHeader = document.getElementsByTagName("h3")[0];
 // Settings Variables
 let darkMode;
 let volMute;
@@ -35,6 +40,7 @@ const themeSwitch = () => {
     e.classList.toggle("white");
   });
   toPink.forEach(e => {
+    e.classList.toggle("green");
     e.classList.toggle("pink");
   });
   darkMode = !darkMode;
@@ -56,12 +62,16 @@ const modeSwitch = () => {
         e.classList.add("hide");
       });
 };
-// Play Gesture Audio
-const gestureAudio = e => {
+// Gesture Selection
+const gestureSelect = e => {
+  // Audio
   const effect = new Audio(e.getElementsByTagName("audio")[0].src);
   effect.play();
   if (volMute) effect.muted = true;
   else effect.muted = false;
+  // Display
+  const gestureImg = e.getElementsByTagName("img")[0].src;
+  plrChoiceImg.src = gestureImg;
 };
 // Computer's Choice
 const getCompChoice = num => {
@@ -83,7 +93,8 @@ const getCompChoice = num => {
       break;
     case 4:
       compChoice = "Spock";
-  } return compChoice;
+  } compChoiceImg.src = document.getElementById(`${compChoice.toLowerCase()}-img`).src;
+  return compChoice;
 };
 // Play Round
 const playRound = plrChoice => {
@@ -95,7 +106,7 @@ const playRound = plrChoice => {
   } const compChoice = getCompChoice(num);
   // Reason Flavor Text
   const reason = {
-    "Draw.": `${plrChoice} ties with ${compChoice}`,
+    "Draw": `${plrChoice} ties with ${compChoice}`,
     "Lose...": `${plrChoice} falls to ${compChoice}`,
     "Win!": `${plrChoice} beats ${compChoice}`
   };
@@ -117,8 +128,9 @@ const playRound = plrChoice => {
       result = "Lose...";
       break;
     default:
-      result = "Draw.";
-  } return `You ${result} ${reason[result]}`;
+      result = "Draw";
+  } firstHeader.innerText = `You ${result}`;
+  secondHeader.innerText = `${reason[result]}`;
 };
 // Full Game
 const game = () => {
@@ -142,7 +154,7 @@ toggle.addEventListener("change", () => {
 
 gestures.forEach(e => {
   e.addEventListener("click", () => {
-    gestureAudio(e);
+    gestureSelect(e);
     playRound(e.innerText);
   });
 });

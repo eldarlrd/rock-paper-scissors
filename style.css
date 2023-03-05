@@ -8,7 +8,7 @@
   --secondary: #FBF8F6;
   --tertiary: #EFECEA;
   --toggle: #B7B5B3;
-  --secret: #007112;
+  --secret: #007111;
 
   --dk-primary: #E5E2E0;
   --dk-secondary: #1E1E1D;
@@ -93,7 +93,11 @@ footer > a:active {
 }
 
 .pink {
-  filter: hue-rotate(180deg);
+  filter: hue-rotate(88deg) saturate(.75) brightness(2.1);
+}
+
+.green {
+  filter: hue-rotate(-81deg) brightness(1.59);
 }
 
 .hide {
@@ -146,7 +150,7 @@ footer > a:active {
   flex-direction: column;
   align-items: flex-end;
   top: 9em;
-  width: 146px;
+  width: 9.125rem;
   height: min-content;
   padding: 1rem 12px;
   border-radius: 1em;
