@@ -1,0 +1,23 @@
+{
+  "name": "Rock Paper Scissors Lizard Spock",
+  "short_name": "Rock Paper Scissors",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": [
+    "games"
+  ],
+  "display": "minimal-ui",
+  "orientation": "natural",
+  "theme_color": "#00366f",
+  "background_color": "#fbf8f6",
+  "description": "Rock Paper Scissors Lizard Spock",
+  "start_url": "https://eldarlrd.github.io/rock-paper-scissors/",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ]
+}

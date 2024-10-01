@@ -1,31 +1,50 @@
 @font-face {
-  font-family: NanumPenScript;
-  src: url(assets/NanumPenScript.ttf);
   font-display: swap;
+  font-family: NanumPenScript;
+  src: url('assets/fonts/NanumPenScript.woff2') format('woff2');
 }
-/* General */
+
 :root {
-  --primary: #00366F;
-  --secondary: #FBF8F6;
-  --tertiary: #EFECEA;
-  --toggle: #B7B5B3;
+  --primary: #00366f;
+  --secondary: #fbf8f6;
+  --tertiary: #efecea;
+  --toggle: #b7b5b3;
   --secret: #007111;
-
-  --dk-primary: #E5E2E0;
-  --dk-secondary: #1E1E1D;
-  --dk-tertiary: #2A2A29;
+  --dk-primary: #e5e2e0;
+  --dk-secondary: #1e1e1d;
+  --dk-tertiary: #2a2a29;
   --dk-toggle: #626261;
-  --dk-secret: #D642BD;
-
+  --dk-secret: #d642bd;
   --victory: #059900;
   --defeat: #990002;
+
   font-family: NanumPenScript, cursive;
   scroll-behavior: smooth;
+  accent-color: var(--primary);
+  background: var(--secondary);
+  color: var(--primary);
   width: 100%;
   margin: 0;
-  color: var(--primary);
-  background: var(--secondary);
-  accent-color: var(--primary);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  text-align: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+  user-select: none;
+
+  & main {
+    flex: 1;
+    display: inherit;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 button {
@@ -35,24 +54,16 @@ button {
   border: 0;
 }
 
-body {
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 header {
   display: inherit;
   flex-direction: column;
   align-items: center;
   margin-top: 1em;
-}
 
-h1 {
-  font-size: 4em;
-  line-height: 0;
+  & h1 {
+    font-size: 4em;
+    line-height: 0;
+  }
 }
 
 section {
@@ -69,11 +80,14 @@ h1 > span, #switch > p,
 .gesture:hover, .restart:hover, .settings-btn:hover,
 footer > a:hover, label:not(#slider):hover {
   filter: saturate(3);
+  cursor: pointer;
 }
+
 .gesture:active, .restart:active,
 footer > a:active {
   filter: grayscale(.75);
 }
+
 /* Color Theme */
 .dark {
   --primary: var(--dk-primary);
@@ -86,10 +100,12 @@ footer > a:active {
 .white {
   filter: contrast(0) brightness(1.6) !important;
 }
+
 .white:not(img):hover {
   filter: contrast(0) brightness(2) !important;
 }
-.white:not(img):not(.settings-btn):active {
+
+.white:not(img, .settings-btn):active {
   filter: contrast(0) brightness(.8) !important;
 }
 
@@ -107,13 +123,14 @@ footer > a:active {
   width: 0;
   height: 0;
 }
+
 /* Dropdown */
 .drop {
   width: 2em;
   height: 2em;
-  padding-bottom: 1em;
   display: inherit;
   align-items: center;
+  padding-bottom: 1.5em;
   justify-content: center;
 }
 
@@ -126,7 +143,8 @@ footer > a:active {
   border-radius: 50%;
   background: none;
 }
-.drop-btn:hover {
+
+.drop:hover .drop-btn {
   background: var(--tertiary);
 }
 
@@ -158,33 +176,39 @@ footer > a:active {
   font-size: 17px;
   font-weight: bold;
   line-height: 22px;
-  box-shadow: 0 0 1px var(--primary);
-  -webkit-box-shadow: 0 0 2px var(--primary);
+  box-shadow: 0 0 2px var(--primary);
   background: var(--tertiary);
-  opacity: 98%;
+  opacity: 0.98;
   z-index: 1;
 }
+
 /* Settings */
 .drop:hover #settings {
-  width: min-content;
+  width: fit-content;
 }
 
 #settings > span:nth-child(1) {
   display: inherit;
   align-items: center;
   justify-content: center;
-  width: 100%;
   margin-bottom: 6px;
+  width: 100%;
   gap: 1rem;
 }
 
 #settings > span:nth-child(2) {
-  text-align: left;
+  width: 100%;
   font-size: 20px;
+  text-align: left;
   line-height: 28px;
-  margin-right: 1em;
   margin-bottom: 1rem;
+  margin-right: -.25rem;
+
+  & input {
+    cursor: pointer;
+  }
 }
+
 /* Switch */
 #switch {
   font-size: 24px;
@@ -209,8 +233,9 @@ footer > a:active {
   border-radius: 12px;
   background: var(--toggle);
 }
+
 #slider::after {
-  content: "";
+  content: '';
   top: 4px;
   left: 4px;
   width: 1rem;
@@ -220,13 +245,16 @@ footer > a:active {
   background: var(--secondary);
   transition: left .2s, transform .2s;
 }
+
 #slider:hover::after {
   background: var(--primary);
 }
+
 #toggle:checked + #slider::after {
   left: calc(100% - 4px);
   transform: translateX(-100%);
 }
+
 /* Score */
 h2 {
   font-size: 2em;
@@ -242,7 +270,6 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: fit-content;
   margin-top: -1em;
   width: 100%;
 }
@@ -265,6 +292,7 @@ figure {
   width: 5rem;
   height: 5rem;
 }
+
 /* Gesture Menu */
 #gestures {
   display: flex;
@@ -292,6 +320,7 @@ figure {
   width: 4rem;
   height: 4rem;
 }
+
 /* Restart */
 .restart {
   width: 5em;
@@ -308,7 +337,7 @@ figure {
   height: 20px;
   vertical-align: top;
 }
-/* Footer */
+
 footer {
   font-size: 18px;
   margin-top: 1em;
@@ -318,6 +347,7 @@ footer {
 footer > a {
   color: inherit;
 }
+
 /* Endgame Modal */
 #modal {
   visibility: hidden;
@@ -328,7 +358,7 @@ footer > a {
   width: 100%;
   height: 100%;
   padding: 100%;
-  background: #101010BF;
+  background: #101010bf;
   z-index: 2;
 }
 
@@ -350,7 +380,7 @@ footer > a {
   border-radius: 1rem;
   background: var(--tertiary);
   box-shadow: 0 0 1px 1px var(--primary);
-  opacity: 98%;
+  opacity: 0.98;
 }
 
 #modal > span > button {
@@ -359,4 +389,16 @@ footer > a {
 
 #modal > span > button > img {
   vertical-align: baseline;
+}
+
+@media (hover: none) {
+  footer > a:hover,
+  label:not(#slider):hover,
+  .white:not(img):hover {
+    filter: none;
+  }
+
+  #slider:hover::after {
+    background: var(--secondary);
+  }
 }

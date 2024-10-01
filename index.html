@@ -1,213 +1,270 @@
-<!DOCTYPE html>
-<html lang="en">
-<!-- Boilerplate -->
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Rock Paper Scissors & Lizard Spock">
-  <meta name="keywords" content="RPS, Rock Paper Scissors, Lizard Spock">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="eldarlrd">
-  <link href="styles.css" rel="stylesheet">
-  <link href="assets/favicon.png" rel="icon">
-  <script src="main.js" defer></script>
-  <title>Rock Paper Scissors</title>
-</head>
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name='description' content='Rock Paper Scissors Lizard Spock'>
+    <meta name='keywords' content='RPS, Rock Paper Scissors, Lizard Spock'>
+    <meta name='author' content='Eldar Pashazade'>
+    <meta name='theme-color' content='#00366f'>
 
-<body>
-  <header>
-    <h1>RPS<span class="extra">LS</span></h1>
-    <section>
-      <!-- Game Rules Dropdown -->
-      <div class="drop">
-        <button class="drop-btn" title="Game Rules">
-          <!-- Add className "white" -->
-          <img class="change"
-               src="assets/icons/info.png"
-               alt="Info">
-        </button>
-        <span id="game-rules">
-          Rock crushes Scissors
-          Paper covers Rock
-          Scissors cuts Paper
-          <span class="extra">
-            Rock crushes Lizard
-            Paper disproves Spock
-            Scissors beheads Lizard
-            Lizard eats Paper
-            Lizard poisons Spock
-            Spock vaporizes Rock
-            Spock smashes Scissors
-          </span>
-        </span>
-      </div>
-      <!-- Settings Dropdown -->
-      <div class="drop">
-        <button class="drop-btn" title="Settings">
-          <!-- Add className "white" -->
-          <img class="change"
-               src="assets/icons/settings.png"
-               alt="Cogwheel">
-        </button>
-        <span id="settings">
-          <!-- Switch img src & Add className "white" -->
-          <span>
-            <button id="theme-btn" class="settings-btn change"
-                    title="Color Theme">
-              <img id="theme-img"
-                   src="assets/icons/moon.png"
-                   alt="Moon or Sun">
-            </button>
-            <button id="volume-btn" class="settings-btn change"
-                    title="Volume Toggle">
-              <img id="volume-img"
-                   src="assets/icons/speaker.png"
-                   alt="Speaker">
-            </button>
-          </span>
-          <!-- Max Score -->
-          <span>
-            <label for="3">
-              <input id="3"
-                type="radio"
-                name="max-score"
-                value="3"> 3 to win
-            </label>
-            <br>
-            <label for="5">
-              <input id="5"
-                type="radio"
-                name="max-score"
-                value="5"
-                checked> 5 to win
-            </label>
-            <br>
-            <label for="10">
-              <input id="10"
-                type="radio"
-                name="max-score"
-                value="10"> 10 to win
-            </label>
-          </span>
-          <!-- Mode Toggle -->
-          <div id="switch">
-            RPS
-            <input id="toggle" type="checkbox">
-            <label id="slider" for="toggle"></label>
-            <p>+LS</p>
-          </div>
-        </span>
-      </div>
-    </section>
-  </header>
-  <!-- Score Screen -->
-  <main>
-    <!-- Update results -->
-    <div id="result">
-      <h2></h2>
-      <h3></h3>
-    </div>
-    <!-- Swap img src & count score -->
-    <div id="score">
-      <figure>
-        <!-- Add className "white" -->
-        <img id="player-choice"
-             class="score-img change"
-             src="assets/icons/gestures/unknown.png"
-             alt="Player's Choice">
-        <span id="player-score"></span>
-      </figure>
-      <figure>
-        <!-- Add className "white" -->
-        <img id="comp-choice"
-             class="score-img change"
-             src="assets/icons/gestures/unknown.png"
-             alt="Computer's Choice">
-        <span id="comp-score"></span>
-      </figure>
-    </div>
-    <!-- Gesture Menu -->
-    <div id="gestures">
-      <!-- Play audio on active & Add className "white" -->
-      <button class="rps gesture change">
-        <audio id="rock-snd"
-               src="assets/sounds/effects/rock-smash.mp3"></audio>
-        <img id="rock-img"
-             class="gesture-img"
-             src="assets/icons/gestures/rock.png"
-             alt="Rock Icon"> Rock
-      </button>
-      <button class="rps gesture change">
-        <audio id="paper-snd"
-               src="assets/sounds/effects/paper-flip.mp3"></audio>
-        <img id="paper-img"
-             class="gesture-img"
-             src="assets/icons/gestures/paper.png"
-             alt="Paper Icon"> Paper
-      </button>
-      <button class="rps gesture change">
-        <audio id="scissors-snd"
-               src="assets/sounds/effects/scissors-snip.mp3"></audio>
-        <img id="scissors-img"
-             class="gesture-img"
-             src="assets/icons/gestures/scissors.png"
-             alt="Scissors Icon"> Scissors
-      </button>
-      <button class="ls gesture extra">
-        <audio id="lizard-snd"
-               src="assets/sounds/effects/lizard-hiss.mp3"></audio>
-        <!-- Add className "pink" -->
-        <img id="lizard-img"
-             class="gesture-img green"
-             src="assets/icons/gestures/lizard.png"
-             alt="Lizard Icon"> Lizard
-      </button>
-      <button class="ls gesture extra">
-        <audio id="spock-snd"
-               src="assets/sounds/effects/spock-laser.mp3"></audio>
-        <!-- Add className "pink" -->
-        <img id="spock-img"
-             class="gesture-img green"
-             src="assets/icons/gestures/spock.png"
-             alt="Spock Icon"> Spock
-      </button>
-    </div>
-    <!-- Add className "white" -->
-    <button class="restart change">
-      <audio id="restart-snd" src="assets/sounds/restart.mp3"></audio>
-      <img src="assets/icons/fist.png"
-           alt="Fist Icon"> Restart
-    </button>
-  </main>
-  <!-- Endgame Modal -->
-  <div id="modal">
-    <span>
-      <span id="final-text"></span>
-      <!-- Add className "white" -->
-      <button class="restart change">
-        <audio id="result-snd"></audio>
-        <img src="assets/icons/fist.png"
-             alt="Fist Icon"> Restart
-      </button>
-    </span>
-  </div>
-  <!-- Footer -->
-  <footer>
-    <!-- Add className "white" -->
-    game's origin <a target="_blank"
-      rel="noreferrer" class="change"
-      href="http://www.samkass.com/theories/RPSSL.html">
-      from this blog</a>
-    <br>
-    inspired by <a target="_blank"
-      rel="noreferrer" class="change"
-      href="https://youtu.be/pIpmITBocfM">
-      this clip</a>
-    <br>
-    site by <a target="_blank"
-      rel="noreferrer" class="change"
-      href="https://github.com/eldarlrd">
-      eldarlrd</a>
-  </footer>
-</body>
+    <meta property='og:type' content='website'>
+    <meta property='og:title' content='Rock Paper Scissors'>
+    <meta property='og:description' content='Rock Paper Scissors Lizard Spock'>
+    <meta property='og:url' content='https://eldarlrd.github.io/rock-paper-scissors'>
+    <meta property='og:image' content='https://repository-images.githubusercontent.com/601601439/d9a33a4a-eb10-4b38-9fd5-6fb713e8e108'>
+    <meta property='og:image:type' content='image/png'>
+    <meta property='og:image:width' content='1280'>
+    <meta property='og:image:height' content='640'>
 
+    <link rel='manifest' type='application/manifest+json' href='public/site.webmanifest'>
+    <link rel='icon' type='image/png' sizes='512x512' href='public/favicon.png'>
+    <link rel='stylesheet' type='text/css' href='src/styles.css'>
+    <title>Rock Paper Scissors</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>RPS<span class='extra'>LS</span></h1>
+      <section>
+        <!-- Game Rules Dropdown -->
+        <div class='drop'>
+          <button class='drop-btn' title='Game Rules'>
+            <!-- Add className 'white' -->
+            <img class='change' src='src/assets/icons/info.avif' alt='Info'>
+          </button>
+
+          <span id='game-rules'>
+            Rock crushes Scissors
+            Paper covers Rock
+            Scissors cuts Paper
+            <span class='extra'>
+              Rock crushes Lizard
+              Paper disproves Spock
+              Scissors beheads Lizard
+              Lizard eats Paper
+              Lizard poisons Spock
+              Spock vaporizes Rock
+              Spock smashes Scissors
+            </span>
+          </span>
+        </div>
+
+        <!-- Settings Dropdown -->
+        <div class='drop'>
+          <button class='drop-btn' title='Settings'>
+            <!-- Add className 'white' -->
+            <img
+              class='change'
+              src='src/assets/icons/settings.avif'
+              alt='Cogwheel'>
+          </button>
+
+          <span id='settings'>
+            <!-- Switch img src & Add className 'white' -->
+            <span>
+              <button
+                id='theme-btn'
+                class='settings-btn change'
+                title='Color Theme'>
+                <img
+                  id='theme-img'
+                  alt='Moon or Sun'>
+              </button>
+
+              <button
+                id='volume-btn'
+                class='settings-btn change'
+                title='Volume Toggle'>
+                <img
+                  id='volume-img'
+                  alt='Speaker'>
+              </button>
+            </span>
+
+            <!-- Max Score -->
+            <span>
+              <label for='3'>
+                <input id='3' type='radio' name='max-score' value='3'> 3 to
+                win
+              </label>
+              <br>
+              <label for='5'>
+                <input id='5' type='radio' name='max-score' value='5'>
+                5 to win
+              </label>
+              <br>
+              <label for='10'>
+                <input id='10' type='radio' name='max-score' value='10'> 10 to
+                win
+              </label>
+            </span>
+
+            <!-- Mode Toggle -->
+            <div id='switch'>
+              RPS
+              <input id='toggle' type='checkbox'>
+              <label id='slider' for='toggle'></label>
+              <p>LS</p>
+            </div>
+          </span>
+        </div>
+      </section>
+    </header>
+
+    <!-- Score Screen -->
+    <main>
+      <!-- Update results -->
+      <div id='result'>
+        <h2></h2>
+        <h3></h3>
+      </div>
+      <!-- Swap img src & count score -->
+      <div id='score'>
+        <figure aria-label="Player's Gesture">
+          <!-- Add className 'white' -->
+          <img
+            id='player-choice'
+            class='score-img change'
+            src='src/assets/icons/gestures/unknown.avif'
+            alt="Player's Choice">
+          <span id='player-score'></span>
+        </figure>
+
+        <figure aria-label="Computer's Gesture">
+          <!-- Add className 'white' -->
+          <img
+            id='comp-choice'
+            class='score-img change'
+            src='src/assets/icons/gestures/unknown.avif'
+            alt="Computer's Choice">
+          <span id='comp-score'></span>
+        </figure>
+      </div>
+
+      <!-- Gesture Menu -->
+      <div id='gestures'>
+        <!-- Play audio on active & Add className 'white' -->
+        <button class='rps gesture change'>
+          <audio
+            id='rock-snd'
+            src='src/assets/sfx/gestures/rock-smash.opus'></audio>
+          <img
+            id='rock-img'
+            class='gesture-img'
+            src='src/assets/icons/gestures/rock.avif'
+            alt='Rock Icon'>
+          Rock
+        </button>
+
+        <button class='rps gesture change'>
+          <audio
+            id='paper-snd'
+            src='src/assets/sfx/gestures/paper-flip.opus'></audio>
+          <img
+            id='paper-img'
+            class='gesture-img'
+            src='src/assets/icons/gestures/paper.avif'
+            alt='Paper Icon'>
+          Paper
+        </button>
+
+        <button class='rps gesture change'>
+          <audio
+            id='scissors-snd'
+            src='src/assets/sfx/gestures/scissors-snip.opus'></audio>
+          <img
+            id='scissors-img'
+            class='gesture-img'
+            src='src/assets/icons/gestures/scissors.avif'
+            alt='Scissors Icon'>
+          Scissors
+        </button>
+
+        <button class='ls gesture extra'>
+          <audio
+            id='lizard-snd'
+            src='src/assets/sfx/gestures/lizard-hiss.opus'></audio>
+          <!-- Add className 'pink' -->
+          <img
+            id='lizard-img'
+            class='gesture-img green'
+            src='src/assets/icons/gestures/lizard.avif'
+            alt='Lizard Icon'>
+          Lizard
+        </button>
+
+        <button class='ls gesture extra'>
+          <audio
+            id='spock-snd'
+            src='src/assets/sfx/gestures/spock-laser.opus'></audio>
+          <!-- Add className 'pink' -->
+          <img
+            id='spock-img'
+            class='gesture-img green'
+            src='src/assets/icons/gestures/spock.avif'
+            alt='Spock Icon'>
+          Spock
+        </button>
+      </div>
+
+      <!-- Add className 'white' -->
+      <button class='restart change'>
+        <audio id='restart-snd' src='src/assets/sfx/restart.opus'></audio>
+        <img src='src/assets/icons/fist.avif' alt='Fist Icon'> Restart
+      </button>
+    </main>
+
+    <!-- Endgame Modal -->
+    <div id='modal'>
+      <span>
+        <span id='final-text'></span>
+        <!-- Add className 'white' -->
+        <button class='restart change'>
+          <audio id='result-snd'></audio>
+          <img src='src/assets/icons/fist.avif' alt='Fist Icon'> Restart
+        </button>
+      </span>
+    </div>
+
+    <footer>
+      <!-- Add className 'white' -->
+      game's origin from
+      <a
+        target='_blank'
+        type='text/html'
+        rel='external noreferrer'
+        class='change'
+        href='http://www.samkass.com/theories/RPSSL.html'>
+        this blog
+      </a>
+
+      <br>
+
+      inspired by
+      <a
+        target='_blank'
+        type='text/html'
+        rel='external noreferrer'
+        class='change'
+        href='https://youtu.be/pIpmITBocfM'>
+        this clip
+      </a>
+
+      <br>
+
+      © 2023 - 2024
+      <a
+        title='Source'
+        target='_blank'
+        type='text/html'
+        rel='author external noreferrer'
+        class='change'
+        href='https://github.com/eldarlrd/rock-paper-scissors'>
+        eldarlrd
+        </a>
+    </footer>
+
+    <script type='text/javascript' src='src/main.js'></script>
+  </body>
 </html>
