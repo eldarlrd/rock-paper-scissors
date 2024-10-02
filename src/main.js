@@ -151,6 +151,8 @@ const toggleMuted = () => {
 const toggleMode = () => {
   isExtraMode = domElements.game.toggle.checked;
   toggleClasses(domElements.game.extra, 'hide', !isExtraMode);
+
+  startGame();
   saveToLocalStorage('isExtraMode', isExtraMode);
 };
 
